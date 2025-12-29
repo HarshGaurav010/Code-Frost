@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Campus Resource Optimizer</title>
+    <link rel="stylesheet" href="Front.css">
+</head>
+<body>
+
+<header>
+    <h1>Campus Ease !</h1>
+    <p>Smart Campus Resource Management System</p>
+</header>
+
+<!-- LOGIN -->
+<section id="loginSection">
+    <h2>Login</h2>
+    <select id="role">
+        <option value="admin">Admin</option>
+        <option value="faculty">Faculty</option>
+        <option value="student">Student</option>
+    </select>
+    <button onclick="login()">Login</button>
+</section>
+
+<!-- MAIN APP -->
+<section id="appSection" class="hidden">
+
+<nav>
+    <button onclick="showPage('dashboard')">Dashboard</button>
+    <button onclick="showPage('booking')">Book Resource</button>
+    <button onclick="showPage('search')">Search</button>
+    <button onclick="showPage('reports')">Reports</button>
+    <button onclick="logout()">Logout</button>
+</nav>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="page">
+    <h2>Dashboard</h2>
+    <ul id="resourceList"></ul>
+</div>
+
+<!-- BOOKING -->
+<div id="booking" class="page hidden">
+    <h2>Book a Resource</h2>
+
+    <label>Resource</label>
+    <select id="resourceSelect"></select>
+
+    <label>Date</label>
+    <input type="date" id="date">
+
+    <label>Start Time</label>
+    <input type="time" id="startTime">
+
+    <label>End Time</label>
+    <input type="time" id="endTime">
+
+    <button onclick="bookResource()">Book</button>
+    <p id="bookingMessage"></p>
+</div>
+
+<!-- SEARCH -->
+<div id="search" class="page hidden">
+    <h2>Search Resources</h2>
+    <input type="text" id="searchInput" placeholder="Search resource">
+    <button onclick="searchResource()">Search</button>
+    <ul id="searchResult"></ul>
+</div>
+
+<!-- REPORTS -->
+<div id="reports" class="page hidden">
+    <h2>Utilization Reports</h2>
+    <p id="reportData"></p>
+</div>
+
+<!-- Admin Panel-->
+ <div id ="andminPanel" class="page hidden">
+    <h2> Admin Panel</h2>
+    <h3>Add Resources</h3>
+    <input type="text" id="newResourceName" placeholder="Resource Name">
+    <select id="newResourceType">
+        <option>Room</option>
+        <option>Equipment</option>
+        <option>Book</option>
+    </select>
+    <button onclick="adminAddResource()">Add Resource</button>
+    <h3>All Bookings</h3>
+    <ul id="allBookings"></ul>
+ </div>
+
+ <!-- Faculty Panel-->
+ <div id ="facultyPanel" class="page hidden">
+    <h2>Faculty Bookings</h2>
+    <ul id="facultyBookings"></ul>
+ </div>
+
+ <!-- Student Panel-->
+  <div id ="studentPanel" class="page hidden">
+    <h2> Student Bookings</h2>
+    <ul id="studentBookings"></ul>
+  </div>
+</section>
+
+<footer>
+    <p>@ CODE PULSE</p>
+</footer>
+
+<script src="Front.js"></script>
+</body>
+</html>
